@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.db.models import CheckConstraint, F, Q, UniqueConstraint
 
 User = get_user_model()
 
@@ -87,7 +88,6 @@ class Comment(models.Model):
     )
 
     class Meta:
-        ordering = ('-created', )
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
@@ -108,19 +108,19 @@ class Follow(models.Model):
         related_name='following',
         verbose_name='Автор',
     )
-    pub_date = models.DateTimeField(
-        'Дата добавления', auto_now_add=True, db_index=True
-    )
 
     class Meta:
-        ordering = ('-pub_date', )
         verbose_name = 'Подписка'
         verbose_name_plural = 'Подписки'
         constraints = [
-            models.UniqueConstraint(
+            UniqueConstraint(
                 fields=('user', 'following',),
                 name='unique_user_following'
-            )
+            ),
+            CheckConstraint(
+                check=~Q(user=F('following')),
+                name='could_not_follow_itself'
+            ),
         ]
 
     def __str__(self):

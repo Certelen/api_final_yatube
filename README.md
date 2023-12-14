@@ -12,12 +12,12 @@
 # Копирование репозитория
 Клонируем репозиторий
 ```
-~ git clone git@github.com:Certelen/yatube_project_html.git
+~ git clone git@github.com:Certelen/yatube_project_API.git
 ```
 Переходим в клонированный репозиторий
 ```
 ~ cd {путь до папки с клонированным репозиторем}
-~ cd yatube_project_html
+~ cd yatube_project_API
 ```
 Устанавливаем и активируем виртуальное окружение
 ```

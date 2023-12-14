@@ -1,62 +1,48 @@
-# Description
-A blog site project for interaction via the API.
+# Cервис YaTube.
 
-# Technology
-Django 3.2
+## Описание
+Сервис блога с возможностью регистрации пользователей, создания публикаций, групп, с возможностью взаимодействия через API.
+
+## Технологии
 Python 3.7
+Django 3.2
 
-# Installation
+# Установка
+## Документация
+# Копирование репозитория
+Клонируем репозиторий
 ```
-git clone 
+~ git clone git@github.com:Certelen/yatube_project_html.git
 ```
+Переходим в клонированный репозиторий
+```
+~ cd {путь до папки с клонированным репозиторем}
+~ cd yatube_project_html
+```
+Устанавливаем и активируем виртуальное окружение
+```
+~ py -3.7 -m venv venv
+~ . venv/Scripts/activate
+```
+Устанавливаем требуемые зависимости:
+```
+~ pip install -r requirements.txt
+```
+# Миграция базы данных
+Применяем миграцию для базы данных:
+```
+~ python manage.py migrate
+```
+# Запуск
+Запуск сервиса производится командой:
+```
+~ python manage.py runserver
+```
+Доступ к сервису становится доступен по [адресу](http://127.0.0.1:8000/)
 
-```
-cd 
-```
-
-Create and activate a virtual environment:
-
-```
-python -m venv env
-```
-
-```
-. env/Scripts/activate
-```
-
-Install dependencies from a file requirements.txt:
-
-```
-python -m pip install --upgrade pip
-```
-
-```
-pip install -r requirements.txt
-```
-
-```
-cd 
-```
-
-Perform migrations:
-
-```
-python manage.py migrate
-```
-
-Launch a project:
-
-```
-python manage.py runserver
-```
-
-
-# Examples
+# Примеры запросов
 GET [list of commands with examples](http://127.0.0.1:8000/redoc/#tag/api),
 
 GET [list of posts](http://127.0.0.1:8000/api/v1/posts/),
-
-POST [make of post](http://127.0.0.1:8000/api/v1/posts/), need authorization.
-
-# Author
-It's me, Dmitry Kolomeytcev
+### Авторы
+- :white_check_mark: [Коломейцев Дмитрий(Certelen)](https://github.com/Certelen)
